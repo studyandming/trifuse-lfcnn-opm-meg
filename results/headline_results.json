@@ -1,0 +1,46 @@
+{
+  "paper": "TriFuse-LFCNN: Feasibility Analysis of OPM-MEG as an Emerging Brain-Fingerprinting Modality",
+  "dataset": {
+    "name": "dog_day_afternoon_OPM",
+    "subjects": 10,
+    "runs_per_subject": 2,
+    "session": "same-session naturalistic movie viewing",
+    "sensors": "49 common tri-axial OPM sensors",
+    "channels": 147,
+    "window_s": 5,
+    "target_fs_hz": 200
+  },
+  "primary_closed_set": {
+    "feature_model": "beta-band LogVar + logistic regression",
+    "protocol": "bidirectional cross-run subject identification",
+    "mean_accuracy_percent": 99.42,
+    "eer_percent": 3.30,
+    "subject_clustered_ci95_percent": [98.98, 99.74]
+  },
+  "trifuse_lfcnn": {
+    "protocol": "same bidirectional cross-run protocol, validation split from training run only",
+    "trifuse_lfcnn_fold_accuracy_percent": [99.47, 99.73],
+    "trifuse_lfcnn_mean_accuracy_percent": 99.60,
+    "trifuse_lfcnn_parameters": 490298,
+    "lfcnn_no_gate_ablation_fold_accuracy_percent": [98.93, 99.64],
+    "lfcnn_no_gate_ablation_mean_accuracy_percent": 99.29
+  },
+  "confound_controls": {
+    "geometry_metadata_only_accuracy_percent": 100.00,
+    "native_geometry_residualized_logvar_accuracy_percent": 9.20,
+    "native_geometry_residualized_eer_percent": 48.54,
+    "common_grid_geometry_residualized_logvar_accuracy_percent": 10.55,
+    "common_grid_geometry_residualized_eer_percent": 49.76,
+    "common_grid_logvar_accuracy_percent_range": [99.60, 99.87],
+    "common_grid_logvar_eer_percent_range": [2.31, 2.41],
+    "anatomy_aware_proxy_accuracy_percent_range": [98.97, 99.55],
+    "anatomy_aware_proxy_eer_percent_range": [6.68, 7.69]
+  },
+  "open_set_high_confidence": {
+    "beta_midpoint_unknown_rejection_percent_range": [33.88, 46.40],
+    "strict_multiband_unknown_rejection_percent_range": [64.22, 78.43],
+    "strict_multiband_known_accuracy_percent_range": [93.76, 94.34]
+  },
+  "interpretation": "These results support a confound-aware feasibility analysis on a small public same-session OPM-MEG benchmark. They should not be interpreted as deployment-ready biometrics or proof of pure neural permanence."
+}
+

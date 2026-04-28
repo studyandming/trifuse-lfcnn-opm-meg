@@ -76,6 +76,13 @@ python scripts/run_trifuse_lfcnn.py \
   --output-json results/trifuse_lfcnn_beta.json
 ```
 
+Run TriFuse embedding-level biometric controls, multiband rejection, and geometry-residualized embedding diagnostics:
+
+```bash
+python scripts/run_trifuse_biometric_controls.py \
+  --output-dir results
+```
+
 Run appendix deep baselines:
 
 ```bash
@@ -108,15 +115,19 @@ The sanitized summary is in `results/headline_results.json`. Main numbers:
 - Subject-clustered 95% CI for primary accuracy: 98.98% to 99.74%.
 - TriFuse-LFCNN: 99.60% mean cross-run accuracy with 490,298 trainable parameters.
 - No-gate LF-CNN ablation: 99.29% mean cross-run accuracy.
+- TriFuse beta fused-embedding verification: 0.43% EER under run-1 enrollment and run-2 probe.
+- TriFuse strict multiband rejection: 86.13% to 89.71% unknown rejection across 1-3 unknown-subject settings, with about 99.0% known-subject accepted accuracy.
 - Geometry metadata alone: 100.00% accuracy, showing severe sensor-geometry leakage risk.
 - Geometry-residualized LogVar collapses near chance: 9.20% native sensor-space accuracy and 10.55% common-grid accuracy.
+- Geometry-residualized TriFuse embeddings also collapse near chance: 10.10% mean accuracy and 58.91% mean EER.
 
-These results should be read together: the benchmark contains strong subject cues, but raw sensor-space performance is not sufficient evidence for pure neural permanence.
+These results should be read together: the benchmark contains strong subject cues and TriFuse provides a strong compact embedding, but raw sensor-space performance is not sufficient evidence for pure neural permanence. The embedding residualization result supports a geometry-neural entanglement interpretation rather than a pure-neural claim.
 
 ## Scripts
 
 - `scripts/prepare_opm_movie_dataset.py`: cache construction and primary LogVar/LR validation.
 - `scripts/run_trifuse_lfcnn.py`: TriFuse-LFCNN and no-gate LF-CNN ablation.
+- `scripts/run_trifuse_biometric_controls.py`: TriFuse fused-embedding verification, open-set diagnostics, multiband rejection, common-grid time-series control, and geometry-residualized embedding controls.
 - `scripts/run_deep_baselines.py`: EEGNet, ShallowConvNet, DeepConvNet, and EEG Conformer baselines.
 - `scripts/run_sensor_confound_controls.py`: native sensor-space and geometry-only controls.
 - `scripts/run_common_grid_controls.py`: world-coordinate common-grid controls.

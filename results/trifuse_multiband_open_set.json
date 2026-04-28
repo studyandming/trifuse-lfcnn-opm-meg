@@ -1,0 +1,1068 @@
+{
+  "protocol": {
+    "dataset": "dog_day_afternoon_OPM",
+    "subjects": [
+      "sub-001",
+      "sub-002",
+      "sub-003",
+      "sub-004",
+      "sub-005",
+      "sub-006",
+      "sub-007",
+      "sub-008",
+      "sub-009",
+      "sub-010"
+    ],
+    "target_fs": 200,
+    "window_s": 5.0,
+    "model_score": "TriFuse fused embedding cosine similarity",
+    "config": {
+      "name": "trifuse_lfcnn",
+      "model_type": "trifuse",
+      "norm": "window_zscore",
+      "k_components": 16,
+      "n_filters": 16,
+      "kernel_size": 31,
+      "dropout": 0.1,
+      "hidden": 256,
+      "lr": 0.001,
+      "weight_decay": 0.0003,
+      "batch_size": 32
+    },
+    "seed": 42,
+    "device": "cuda",
+    "bands": [
+      "alpha",
+      "beta",
+      "broad"
+    ],
+    "rule": "accept only if alpha, beta, and broad all pass their enrollment-side midpoint thresholds and predict the same identity"
+  },
+  "per_band_closed_set": {
+    "alpha": {
+      "config": {
+        "name": "trifuse_lfcnn",
+        "model_type": "trifuse",
+        "norm": "window_zscore",
+        "k_components": 16,
+        "n_filters": 16,
+        "kernel_size": 31,
+        "dropout": 0.1,
+        "hidden": 256,
+        "lr": 0.001,
+        "weight_decay": 0.0003,
+        "batch_size": 32
+      },
+      "mean_test_acc": 0.9955352789301615,
+      "std_test_acc": 0.0017741381101971654,
+      "folds": [
+        {
+          "train_run": 1,
+          "test_run": 2,
+          "best_epoch": 15,
+          "val_acc": 1.0,
+          "test_acc": 0.9937611408199644,
+          "parameter_count": 490298,
+          "sizes": {
+            "train": 892,
+            "val": 223,
+            "train_run_all": 1115,
+            "test": 1122
+          }
+        },
+        {
+          "train_run": 2,
+          "test_run": 1,
+          "best_epoch": 14,
+          "val_acc": 0.9955555555555555,
+          "test_acc": 0.9973094170403587,
+          "parameter_count": 490298,
+          "sizes": {
+            "train": 897,
+            "val": 225,
+            "train_run_all": 1122,
+            "test": 1115
+          }
+        }
+      ]
+    },
+    "beta": {
+      "config": {
+        "name": "trifuse_lfcnn",
+        "model_type": "trifuse",
+        "norm": "window_zscore",
+        "k_components": 16,
+        "n_filters": 16,
+        "kernel_size": 31,
+        "dropout": 0.1,
+        "hidden": 256,
+        "lr": 0.001,
+        "weight_decay": 0.0003,
+        "batch_size": 32
+      },
+      "mean_test_acc": 0.9959809117287355,
+      "std_test_acc": 0.001328505311623207,
+      "folds": [
+        {
+          "train_run": 1,
+          "test_run": 2,
+          "best_epoch": 5,
+          "val_acc": 1.0,
+          "test_acc": 0.9946524064171123,
+          "parameter_count": 490298,
+          "sizes": {
+            "train": 892,
+            "val": 223,
+            "train_run_all": 1115,
+            "test": 1122
+          }
+        },
+        {
+          "train_run": 2,
+          "test_run": 1,
+          "best_epoch": 18,
+          "val_acc": 1.0,
+          "test_acc": 0.9973094170403587,
+          "parameter_count": 490298,
+          "sizes": {
+            "train": 897,
+            "val": 225,
+            "train_run_all": 1122,
+            "test": 1115
+          }
+        }
+      ]
+    },
+    "broad": {
+      "config": {
+        "name": "trifuse_lfcnn",
+        "model_type": "trifuse",
+        "norm": "window_zscore",
+        "k_components": 16,
+        "n_filters": 16,
+        "kernel_size": 31,
+        "dropout": 0.1,
+        "hidden": 256,
+        "lr": 0.001,
+        "weight_decay": 0.0003,
+        "batch_size": 32
+      },
+      "mean_test_acc": 0.9919366442051749,
+      "std_test_acc": 0.005389559003381228,
+      "folds": [
+        {
+          "train_run": 1,
+          "test_run": 2,
+          "best_epoch": 12,
+          "val_acc": 1.0,
+          "test_acc": 0.9973262032085561,
+          "parameter_count": 490298,
+          "sizes": {
+            "train": 892,
+            "val": 223,
+            "train_run_all": 1115,
+            "test": 1122
+          }
+        },
+        {
+          "train_run": 2,
+          "test_run": 1,
+          "best_epoch": 11,
+          "val_acc": 0.9955555555555555,
+          "test_acc": 0.9865470852017937,
+          "parameter_count": 490298,
+          "sizes": {
+            "train": 897,
+            "val": 225,
+            "train_run_all": 1122,
+            "test": 1115
+          }
+        }
+      ]
+    }
+  },
+  "strict_multiband_open_set": {
+    "1unk": {
+      "n_unknown": 1,
+      "n_repeats": 20,
+      "known_acc": {
+        "mean": 0.9901683126623902,
+        "std": 0.002267728993374727
+      },
+      "unknown_reject": {
+        "mean": 0.8612965748549272,
+        "std": 0.09116573692437323
+      },
+      "details": [
+        {
+          "rep": 0,
+          "unknown_labels": [
+            8
+          ],
+          "known_acc": 0.9901380670611439,
+          "unknown_reject": 0.7592592592592593,
+          "thresholds": {
+            "alpha": 0.8621065280515241,
+            "beta": 0.8915276644562197,
+            "broad": 0.8766985032744558
+          }
+        },
+        {
+          "rep": 1,
+          "unknown_labels": [
+            4
+          ],
+          "known_acc": 0.9950592885375494,
+          "unknown_reject": 0.9727272727272728,
+          "thresholds": {
+            "alpha": 0.8584234742986823,
+            "beta": 0.890026196255581,
+            "broad": 0.8702552935383664
+          }
+        },
+        {
+          "rep": 2,
+          "unknown_labels": [
+            8
+          ],
+          "known_acc": 0.9901380670611439,
+          "unknown_reject": 0.7592592592592593,
+          "thresholds": {
+            "alpha": 0.8621065280515241,
+            "beta": 0.8915276644562197,
+            "broad": 0.8766985032744558
+          }
+        },
+        {
+          "rep": 3,
+          "unknown_labels": [
+            8
+          ],
+          "known_acc": 0.9901380670611439,
+          "unknown_reject": 0.7592592592592593,
+          "thresholds": {
+            "alpha": 0.8621065280515241,
+            "beta": 0.8915276644562197,
+            "broad": 0.8766985032744558
+          }
+        },
+        {
+          "rep": 4,
+          "unknown_labels": [
+            7
+          ],
+          "known_acc": 0.9891944990176817,
+          "unknown_reject": 0.7980769230769231,
+          "thresholds": {
+            "alpha": 0.8633924072792569,
+            "beta": 0.9041002074946891,
+            "broad": 0.878422598292182
+          }
+        },
+        {
+          "rep": 5,
+          "unknown_labels": [
+            6
+          ],
+          "known_acc": 0.9910625620655412,
+          "unknown_reject": 0.9652173913043478,
+          "thresholds": {
+            "alpha": 0.851777939782538,
+            "beta": 0.8885473325338062,
+            "broad": 0.8710564450798288
+          }
+        },
+        {
+          "rep": 6,
+          "unknown_labels": [
+            4
+          ],
+          "known_acc": 0.9950592885375494,
+          "unknown_reject": 0.9727272727272728,
+          "thresholds": {
+            "alpha": 0.8584234742986823,
+            "beta": 0.890026196255581,
+            "broad": 0.8702552935383664
+          }
+        },
+        {
+          "rep": 7,
+          "unknown_labels": [
+            9
+          ],
+          "known_acc": 0.9881188118811881,
+          "unknown_reject": 1.0,
+          "thresholds": {
+            "alpha": 0.8675772459954023,
+            "beta": 0.9007029704265297,
+            "broad": 0.8901352768857032
+          }
+        },
+        {
+          "rep": 8,
+          "unknown_labels": [
+            7
+          ],
+          "known_acc": 0.9891944990176817,
+          "unknown_reject": 0.7980769230769231,
+          "thresholds": {
+            "alpha": 0.8633924072792569,
+            "beta": 0.9041002074946891,
+            "broad": 0.878422598292182
+          }
+        },
+        {
+          "rep": 9,
+          "unknown_labels": [
+            4
+          ],
+          "known_acc": 0.9950592885375494,
+          "unknown_reject": 0.9727272727272728,
+          "thresholds": {
+            "alpha": 0.8584234742986823,
+            "beta": 0.890026196255581,
+            "broad": 0.8702552935383664
+          }
+        },
+        {
+          "rep": 10,
+          "unknown_labels": [
+            7
+          ],
+          "known_acc": 0.9891944990176817,
+          "unknown_reject": 0.7980769230769231,
+          "thresholds": {
+            "alpha": 0.8633924072792569,
+            "beta": 0.9041002074946891,
+            "broad": 0.878422598292182
+          }
+        },
+        {
+          "rep": 11,
+          "unknown_labels": [
+            1
+          ],
+          "known_acc": 0.9880834160873883,
+          "unknown_reject": 0.8434782608695652,
+          "thresholds": {
+            "alpha": 0.8580922593163725,
+            "beta": 0.8869980743894736,
+            "broad": 0.8700919825111528
+          }
+        },
+        {
+          "rep": 12,
+          "unknown_labels": [
+            6
+          ],
+          "known_acc": 0.9910625620655412,
+          "unknown_reject": 0.9652173913043478,
+          "thresholds": {
+            "alpha": 0.851777939782538,
+            "beta": 0.8885473325338062,
+            "broad": 0.8710564450798288
+          }
+        },
+        {
+          "rep": 13,
+          "unknown_labels": [
+            8
+          ],
+          "known_acc": 0.9901380670611439,
+          "unknown_reject": 0.7592592592592593,
+          "thresholds": {
+            "alpha": 0.8621065280515241,
+            "beta": 0.8915276644562197,
+            "broad": 0.8766985032744558
+          }
+        },
+        {
+          "rep": 14,
+          "unknown_labels": [
+            1
+          ],
+          "known_acc": 0.9880834160873883,
+          "unknown_reject": 0.8434782608695652,
+          "thresholds": {
+            "alpha": 0.8580922593163725,
+            "beta": 0.8869980743894736,
+            "broad": 0.8700919825111528
+          }
+        },
+        {
+          "rep": 15,
+          "unknown_labels": [
+            9
+          ],
+          "known_acc": 0.9881188118811881,
+          "unknown_reject": 1.0,
+          "thresholds": {
+            "alpha": 0.8675772459954023,
+            "beta": 0.9007029704265297,
+            "broad": 0.8901352768857032
+          }
+        },
+        {
+          "rep": 16,
+          "unknown_labels": [
+            5
+          ],
+          "known_acc": 0.9880952380952381,
+          "unknown_reject": 0.8508771929824561,
+          "thresholds": {
+            "alpha": 0.855855078317034,
+            "beta": 0.8923428076001608,
+            "broad": 0.8710404245175525
+          }
+        },
+        {
+          "rep": 17,
+          "unknown_labels": [
+            7
+          ],
+          "known_acc": 0.9891944990176817,
+          "unknown_reject": 0.7980769230769231,
+          "thresholds": {
+            "alpha": 0.8633924072792569,
+            "beta": 0.9041002074946891,
+            "broad": 0.878422598292182
+          }
+        },
+        {
+          "rep": 18,
+          "unknown_labels": [
+            8
+          ],
+          "known_acc": 0.9901380670611439,
+          "unknown_reject": 0.7592592592592593,
+          "thresholds": {
+            "alpha": 0.8621065280515241,
+            "beta": 0.8915276644562197,
+            "broad": 0.8766985032744558
+          }
+        },
+        {
+          "rep": 19,
+          "unknown_labels": [
+            5
+          ],
+          "known_acc": 0.9880952380952381,
+          "unknown_reject": 0.8508771929824561,
+          "thresholds": {
+            "alpha": 0.855855078317034,
+            "beta": 0.8923428076001608,
+            "broad": 0.8710404245175525
+          }
+        }
+      ]
+    },
+    "2unk": {
+      "n_unknown": 2,
+      "n_repeats": 20,
+      "known_acc": {
+        "mean": 0.9910338937013525,
+        "std": 0.002600718227571341
+      },
+      "unknown_reject": {
+        "mean": 0.8897319211618937,
+        "std": 0.07709554004558802
+      },
+      "details": [
+        {
+          "rep": 0,
+          "unknown_labels": [
+            6,
+            7
+          ],
+          "known_acc": 0.991140642303433,
+          "unknown_reject": 0.8858447488584474,
+          "thresholds": {
+            "alpha": 0.8579841458073731,
+            "beta": 0.9015002238275605,
+            "broad": 0.8758652700846375
+          }
+        },
+        {
+          "rep": 1,
+          "unknown_labels": [
+            4,
+            5
+          ],
+          "known_acc": 0.9944320712694877,
+          "unknown_reject": 0.9017857142857143,
+          "thresholds": {
+            "alpha": 0.8589201313447175,
+            "beta": 0.8924280776238696,
+            "broad": 0.8673084366263916
+          }
+        },
+        {
+          "rep": 2,
+          "unknown_labels": [
+            2,
+            7
+          ],
+          "known_acc": 0.9878048780487805,
+          "unknown_reject": 0.8772727272727273,
+          "thresholds": {
+            "alpha": 0.854446349750612,
+            "beta": 0.9026873964278135,
+            "broad": 0.8734856772581544
+          }
+        },
+        {
+          "rep": 3,
+          "unknown_labels": [
+            0,
+            7
+          ],
+          "known_acc": 0.9901098901098901,
+          "unknown_reject": 0.9764150943396226,
+          "thresholds": {
+            "alpha": 0.8617557614551219,
+            "beta": 0.9057086848029697,
+            "broad": 0.876920779565151
+          }
+        },
+        {
+          "rep": 4,
+          "unknown_labels": [
+            6,
+            9
+          ],
+          "known_acc": 0.9899441340782122,
+          "unknown_reject": 0.986784140969163,
+          "thresholds": {
+            "alpha": 0.861466484529746,
+            "beta": 0.8980406738345169,
+            "broad": 0.8886449011657231
+          }
+        },
+        {
+          "rep": 5,
+          "unknown_labels": [
+            6,
+            8
+          ],
+          "known_acc": 0.9922135706340378,
+          "unknown_reject": 0.8475336322869955,
+          "thresholds": {
+            "alpha": 0.8565173948478257,
+            "beta": 0.8885738078424023,
+            "broad": 0.8745144591215352
+          }
+        },
+        {
+          "rep": 6,
+          "unknown_labels": [
+            4,
+            5
+          ],
+          "known_acc": 0.9944320712694877,
+          "unknown_reject": 0.9017857142857143,
+          "thresholds": {
+            "alpha": 0.8589201313447175,
+            "beta": 0.8924280776238696,
+            "broad": 0.8673084366263916
+          }
+        },
+        {
+          "rep": 7,
+          "unknown_labels": [
+            6,
+            8
+          ],
+          "known_acc": 0.9922135706340378,
+          "unknown_reject": 0.8475336322869955,
+          "thresholds": {
+            "alpha": 0.8565173948478257,
+            "beta": 0.8885738078424023,
+            "broad": 0.8745144591215352
+          }
+        },
+        {
+          "rep": 8,
+          "unknown_labels": [
+            3,
+            6
+          ],
+          "known_acc": 0.992108229988726,
+          "unknown_reject": 0.9829787234042553,
+          "thresholds": {
+            "alpha": 0.847295757922468,
+            "beta": 0.8804029716247541,
+            "broad": 0.8658617355228426
+          }
+        },
+        {
+          "rep": 9,
+          "unknown_labels": [
+            3,
+            8
+          ],
+          "known_acc": 0.9921700223713646,
+          "unknown_reject": 0.7280701754385965,
+          "thresholds": {
+            "alpha": 0.8579289159407688,
+            "beta": 0.8824410673418681,
+            "broad": 0.8720916961582987
+          }
+        },
+        {
+          "rep": 10,
+          "unknown_labels": [
+            6,
+            9
+          ],
+          "known_acc": 0.9899441340782122,
+          "unknown_reject": 0.986784140969163,
+          "thresholds": {
+            "alpha": 0.861466484529746,
+            "beta": 0.8980406738345169,
+            "broad": 0.8886449011657231
+          }
+        },
+        {
+          "rep": 11,
+          "unknown_labels": [
+            1,
+            9
+          ],
+          "known_acc": 0.9854748603351955,
+          "unknown_reject": 0.9911894273127754,
+          "thresholds": {
+            "alpha": 0.87095022713923,
+            "beta": 0.8963250689296105,
+            "broad": 0.8893494051322401
+          }
+        },
+        {
+          "rep": 12,
+          "unknown_labels": [
+            2,
+            5
+          ],
+          "known_acc": 0.9865470852017937,
+          "unknown_reject": 0.8695652173913043,
+          "thresholds": {
+            "alpha": 0.8457940661467225,
+            "beta": 0.8871312500601394,
+            "broad": 0.864852821479889
+          }
+        },
+        {
+          "rep": 13,
+          "unknown_labels": [
+            8,
+            9
+          ],
+          "known_acc": 0.9878048780487805,
+          "unknown_reject": 0.9727272727272728,
+          "thresholds": {
+            "alpha": 0.8754391551171011,
+            "beta": 0.9038548013792531,
+            "broad": 0.8969984944085494
+          }
+        },
+        {
+          "rep": 14,
+          "unknown_labels": [
+            1,
+            8
+          ],
+          "known_acc": 0.9888765294771968,
+          "unknown_reject": 0.8116591928251121,
+          "thresholds": {
+            "alpha": 0.8640074289144184,
+            "beta": 0.886560159650716,
+            "broad": 0.8736033783626801
+          }
+        },
+        {
+          "rep": 15,
+          "unknown_labels": [
+            6,
+            8
+          ],
+          "known_acc": 0.9922135706340378,
+          "unknown_reject": 0.8475336322869955,
+          "thresholds": {
+            "alpha": 0.8565173948478257,
+            "beta": 0.8885738078424023,
+            "broad": 0.8745144591215352
+          }
+        },
+        {
+          "rep": 16,
+          "unknown_labels": [
+            4,
+            5
+          ],
+          "known_acc": 0.9944320712694877,
+          "unknown_reject": 0.9017857142857143,
+          "thresholds": {
+            "alpha": 0.8589201313447175,
+            "beta": 0.8924280776238696,
+            "broad": 0.8673084366263916
+          }
+        },
+        {
+          "rep": 17,
+          "unknown_labels": [
+            6,
+            8
+          ],
+          "known_acc": 0.9922135706340378,
+          "unknown_reject": 0.8475336322869955,
+          "thresholds": {
+            "alpha": 0.8565173948478257,
+            "beta": 0.8885738078424023,
+            "broad": 0.8745144591215352
+          }
+        },
+        {
+          "rep": 18,
+          "unknown_labels": [
+            3,
+            8
+          ],
+          "known_acc": 0.9921700223713646,
+          "unknown_reject": 0.7280701754385965,
+          "thresholds": {
+            "alpha": 0.8579289159407688,
+            "beta": 0.8824410673418681,
+            "broad": 0.8720916961582987
+          }
+        },
+        {
+          "rep": 19,
+          "unknown_labels": [
+            4,
+            5
+          ],
+          "known_acc": 0.9944320712694877,
+          "unknown_reject": 0.9017857142857143,
+          "thresholds": {
+            "alpha": 0.8589201313447175,
+            "beta": 0.8924280776238696,
+            "broad": 0.8673084366263916
+          }
+        }
+      ]
+    },
+    "3unk": {
+      "n_unknown": 3,
+      "n_repeats": 20,
+      "known_acc": {
+        "mean": 0.9904062835055487,
+        "std": 0.0035006374420026537
+      },
+      "unknown_reject": {
+        "mean": 0.8971495684909744,
+        "std": 0.09148998514723851
+      },
+      "details": [
+        {
+          "rep": 0,
+          "unknown_labels": [
+            5,
+            6,
+            9
+          ],
+          "known_acc": 0.9884763124199744,
+          "unknown_reject": 0.9941348973607038,
+          "thresholds": {
+            "alpha": 0.8632878852114112,
+            "beta": 0.9018400547138207,
+            "broad": 0.8894713686122153
+          }
+        },
+        {
+          "rep": 1,
+          "unknown_labels": [
+            3,
+            4,
+            7
+          ],
+          "known_acc": 0.9974619289340102,
+          "unknown_reject": 0.6796407185628742,
+          "thresholds": {
+            "alpha": 0.8585583417963476,
+            "beta": 0.8935953760257903,
+            "broad": 0.8676434535061288
+          }
+        },
+        {
+          "rep": 2,
+          "unknown_labels": [
+            1,
+            2,
+            6
+          ],
+          "known_acc": 0.9896907216494846,
+          "unknown_reject": 0.9624277456647399,
+          "thresholds": {
+            "alpha": 0.8382896589787219,
+            "beta": 0.8747043796298641,
+            "broad": 0.8572776920761476
+          }
+        },
+        {
+          "rep": 3,
+          "unknown_labels": [
+            0,
+            1,
+            6
+          ],
+          "known_acc": 0.9936224489795918,
+          "unknown_reject": 0.834319526627219,
+          "thresholds": {
+            "alpha": 0.8447253162460224,
+            "beta": 0.8777374873306225,
+            "broad": 0.8600503522516155
+          }
+        },
+        {
+          "rep": 4,
+          "unknown_labels": [
+            5,
+            8,
+            9
+          ],
+          "known_acc": 0.9860406091370558,
+          "unknown_reject": 0.9880239520958084,
+          "thresholds": {
+            "alpha": 0.8793269009179674,
+            "beta": 0.908597471892153,
+            "broad": 0.8978022900291809
+          }
+        },
+        {
+          "rep": 5,
+          "unknown_labels": [
+            0,
+            5,
+            7
+          ],
+          "known_acc": 0.9886934673366834,
+          "unknown_reject": 0.9662576687116564,
+          "thresholds": {
+            "alpha": 0.8580241314142929,
+            "beta": 0.9061518215541832,
+            "broad": 0.87293400064568
+          }
+        },
+        {
+          "rep": 6,
+          "unknown_labels": [
+            3,
+            4,
+            5
+          ],
+          "known_acc": 0.9961439588688946,
+          "unknown_reject": 0.7122093023255814,
+          "thresholds": {
+            "alpha": 0.8523600920591325,
+            "beta": 0.8834063431634536,
+            "broad": 0.8602776450903288
+          }
+        },
+        {
+          "rep": 7,
+          "unknown_labels": [
+            5,
+            6,
+            7
+          ],
+          "known_acc": 0.9898605830164765,
+          "unknown_reject": 0.9039039039039038,
+          "thresholds": {
+            "alpha": 0.8555965925588802,
+            "beta": 0.9038605088186183,
+            "broad": 0.8740413289811926
+          }
+        },
+        {
+          "rep": 8,
+          "unknown_labels": [
+            2,
+            5,
+            9
+          ],
+          "known_acc": 0.9846153846153847,
+          "unknown_reject": 0.9766081871345029,
+          "thresholds": {
+            "alpha": 0.858999320062844,
+            "beta": 0.8997846468617023,
+            "broad": 0.8844582280861717
+          }
+        },
+        {
+          "rep": 9,
+          "unknown_labels": [
+            3,
+            7,
+            9
+          ],
+          "known_acc": 0.9885496183206107,
+          "unknown_reject": 0.9136904761904762,
+          "thresholds": {
+            "alpha": 0.8729905975739523,
+            "beta": 0.9081149061340039,
+            "broad": 0.8932848366943851
+          }
+        },
+        {
+          "rep": 10,
+          "unknown_labels": [
+            2,
+            6,
+            8
+          ],
+          "known_acc": 0.9923371647509579,
+          "unknown_reject": 0.8436578171091446,
+          "thresholds": {
+            "alpha": 0.844861271417039,
+            "beta": 0.8816705441150146,
+            "broad": 0.867258314240692
+          }
+        },
+        {
+          "rep": 11,
+          "unknown_labels": [
+            1,
+            7,
+            8
+          ],
+          "known_acc": 0.9874213836477987,
+          "unknown_reject": 0.8685015290519877,
+          "thresholds": {
+            "alpha": 0.8735343569315129,
+            "beta": 0.901813345366361,
+            "broad": 0.8794704480124665
+          }
+        },
+        {
+          "rep": 12,
+          "unknown_labels": [
+            2,
+            4,
+            9
+          ],
+          "known_acc": 0.9936224489795918,
+          "unknown_reject": 0.9911242603550295,
+          "thresholds": {
+            "alpha": 0.8607734906895048,
+            "beta": 0.8975092443555812,
+            "broad": 0.8813814151978987
+          }
+        },
+        {
+          "rep": 13,
+          "unknown_labels": [
+            7,
+            8,
+            9
+          ],
+          "known_acc": 0.9874686716791979,
+          "unknown_reject": 0.9907407407407407,
+          "thresholds": {
+            "alpha": 0.8838647578961105,
+            "beta": 0.9186269285409682,
+            "broad": 0.9054421636237893
+          }
+        },
+        {
+          "rep": 14,
+          "unknown_labels": [
+            1,
+            6,
+            7
+          ],
+          "known_acc": 0.9898477157360406,
+          "unknown_reject": 0.8502994011976048,
+          "thresholds": {
+            "alpha": 0.860890643680707,
+            "beta": 0.8985300513732637,
+            "broad": 0.8721222636250094
+          }
+        },
+        {
+          "rep": 15,
+          "unknown_labels": [
+            6,
+            7,
+            9
+          ],
+          "known_acc": 0.9898862199747156,
+          "unknown_reject": 0.9818731117824774,
+          "thresholds": {
+            "alpha": 0.8704633056740783,
+            "beta": 0.9134323520214005,
+            "broad": 0.8978143634901867
+          }
+        },
+        {
+          "rep": 16,
+          "unknown_labels": [
+            4,
+            5,
+            8
+          ],
+          "known_acc": 0.9924050632911392,
+          "unknown_reject": 0.9668674698795181,
+          "thresholds": {
+            "alpha": 0.8713178173839291,
+            "beta": 0.8963881455204658,
+            "broad": 0.8737955899744094
+          }
+        },
+        {
+          "rep": 17,
+          "unknown_labels": [
+            1,
+            5,
+            7
+          ],
+          "known_acc": 0.9860583016476553,
+          "unknown_reject": 0.8678678678678678,
+          "thresholds": {
+            "alpha": 0.8652128019559086,
+            "beta": 0.9038040708404939,
+            "broad": 0.8741864978269922
+          }
+        },
+        {
+          "rep": 18,
+          "unknown_labels": [
+            2,
+            3,
+            7
+          ],
+          "known_acc": 0.989769820971867,
+          "unknown_reject": 0.7941176470588235,
+          "thresholds": {
+            "alpha": 0.8489765479429883,
+            "beta": 0.8942340115964826,
+            "broad": 0.8660240124736447
+          }
+        },
+        {
+          "rep": 19,
+          "unknown_labels": [
+            3,
+            4,
+            9
+          ],
+          "known_acc": 0.9961538461538462,
+          "unknown_reject": 0.8567251461988304,
+          "thresholds": {
+            "alpha": 0.8654279204029025,
+            "beta": 0.8915726880909818,
+            "broad": 0.8840927641145336
+          }
+        }
+      ]
+    }
+  }
+}

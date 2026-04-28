@@ -38,9 +38,18 @@ Deep models select checkpoints using a stratified validation split from the trai
 
 1. Build the beta cache and primary LogVar result.
 2. Run TriFuse-LFCNN and the no-gate LF-CNN ablation.
-3. Run deep baseline models for appendix comparisons.
-4. Run geometry, common-grid, anatomy-aware, and residualized confound controls.
-5. Run open-set and multiband high-confidence diagnostics.
+3. Run TriFuse fused-embedding biometric controls, geometry-residualized embedding controls, common-grid TriFuse, and strict multiband rejection.
+4. Run deep baseline models for appendix comparisons.
+5. Run geometry, common-grid, anatomy-aware, and residualized LogVar confound controls.
+6. Run open-set and multiband high-confidence LogVar diagnostics.
+
+The TriFuse biometric-control script writes four manuscript-facing JSON files:
+
+```text
+results/trifuse_biometric_controls_beta.json
+results/trifuse_multiband_open_set.json
+results/trifuse_geometry_residualized_embeddings.json
+results/trifuse_common_grid_beta.json
+```
 
 The cache directory defaults to `cache/opm_movie_validation_cache`. Set `OPM_MEG_CACHE` or pass `--cache-dir` to use another location.
-

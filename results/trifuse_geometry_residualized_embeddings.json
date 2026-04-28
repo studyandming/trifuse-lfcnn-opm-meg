@@ -1,0 +1,74 @@
+{
+  "protocol": {
+    "dataset": "dog_day_afternoon_OPM",
+    "subjects": [
+      "sub-001",
+      "sub-002",
+      "sub-003",
+      "sub-004",
+      "sub-005",
+      "sub-006",
+      "sub-007",
+      "sub-008",
+      "sub-009",
+      "sub-010"
+    ],
+    "target_fs": 200,
+    "window_s": 5.0,
+    "model_score": "TriFuse fused embedding cosine similarity",
+    "config": {
+      "name": "trifuse_lfcnn",
+      "model_type": "trifuse",
+      "norm": "window_zscore",
+      "k_components": 16,
+      "n_filters": 16,
+      "kernel_size": 31,
+      "dropout": 0.1,
+      "hidden": 256,
+      "lr": 0.001,
+      "weight_decay": 0.0003,
+      "batch_size": 32
+    },
+    "seed": 42,
+    "device": "cuda",
+    "band": "beta",
+    "band_hz": [
+      13.0,
+      30.0
+    ],
+    "n_common_triaxial_sensors": 49
+  },
+  "embedding_residualization": {
+    "residualization": "Training-run Ridge regression predicts TriFuse fused embedding from channels.tsv geometry metadata; residual = embedding - predicted geometry component.",
+    "folds": [
+      {
+        "train_run": 1,
+        "test_run": 2,
+        "raw_embedding_lr_acc": 0.9991087344028521,
+        "residualized_embedding_lr_acc": 0.10606060606060606,
+        "raw_embedding_eer": 0.004307783719548453,
+        "residualized_embedding_eer": 0.5272826302238067,
+        "embedding_dim": 256,
+        "geometry_dim": 882
+      },
+      {
+        "train_run": 2,
+        "test_run": 1,
+        "raw_embedding_lr_acc": 0.9982062780269059,
+        "residualized_embedding_lr_acc": 0.09596412556053811,
+        "raw_embedding_eer": 0.02790234180368707,
+        "residualized_embedding_eer": 0.650921773791729,
+        "embedding_dim": 256,
+        "geometry_dim": 882
+      }
+    ],
+    "summary": {
+      "raw_embedding_lr_mean_acc": 0.998657506214879,
+      "residualized_embedding_lr_mean_acc": 0.10101236581057209,
+      "acc_drop_pp": 89.7645140404307,
+      "raw_embedding_mean_eer": 0.016105062761617762,
+      "residualized_embedding_mean_eer": 0.5891022020077679,
+      "eer_increase_pp": 57.29971392461501
+    }
+  }
+}

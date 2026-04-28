@@ -21,9 +21,21 @@
     "protocol": "same bidirectional cross-run protocol, validation split from training run only",
     "trifuse_lfcnn_fold_accuracy_percent": [99.47, 99.73],
     "trifuse_lfcnn_mean_accuracy_percent": 99.60,
+    "trifuse_beta_embedding_eer_percent": 0.43,
+    "trifuse_common_grid_mean_accuracy_percent": 99.78,
+    "trifuse_common_grid_embedding_eer_percent": 0.04,
     "trifuse_lfcnn_parameters": 490298,
     "lfcnn_no_gate_ablation_fold_accuracy_percent": [98.93, 99.64],
     "lfcnn_no_gate_ablation_mean_accuracy_percent": 99.29
+  },
+  "trifuse_embedding_geometry_control": {
+    "raw_embedding_lr_mean_accuracy_percent": 99.87,
+    "geometry_residualized_embedding_lr_mean_accuracy_percent": 10.10,
+    "accuracy_drop_pp": 89.76,
+    "raw_embedding_mean_eer_percent": 1.61,
+    "geometry_residualized_embedding_mean_eer_percent": 58.91,
+    "eer_increase_pp": 57.30,
+    "interpretation": "TriFuse fused embeddings carry strong subject information, but that representation is strongly geometry-correlated under this same-session benchmark."
   },
   "confound_controls": {
     "geometry_metadata_only_accuracy_percent": 100.00,
@@ -39,8 +51,17 @@
   "open_set_high_confidence": {
     "beta_midpoint_unknown_rejection_percent_range": [33.88, 46.40],
     "strict_multiband_unknown_rejection_percent_range": [64.22, 78.43],
-    "strict_multiband_known_accuracy_percent_range": [93.76, 94.34]
+    "strict_multiband_known_accuracy_percent_range": [93.76, 94.34],
+    "trifuse_single_band_beta_unknown_rejection_percent_range": [27.08, 36.96],
+    "trifuse_single_band_beta_dir_at_fpir_1_percent_range": [99.03, 99.10],
+    "trifuse_strict_multiband_unknown_rejection_percent_range": [86.13, 89.71],
+    "trifuse_strict_multiband_known_accuracy_percent_range": [99.02, 99.10]
   },
-  "interpretation": "These results support a confound-aware feasibility analysis on a small public same-session OPM-MEG benchmark. They should not be interpreted as deployment-ready biometrics or proof of pure neural permanence."
+  "new_trifuse_result_files": [
+    "results/trifuse_biometric_controls_beta.json",
+    "results/trifuse_multiband_open_set.json",
+    "results/trifuse_geometry_residualized_embeddings.json",
+    "results/trifuse_common_grid_beta.json"
+  ],
+  "interpretation": "These results support a confound-aware feasibility analysis on a small public same-session OPM-MEG benchmark. TriFuse gives a strong compact embedding and improves verification/rejection diagnostics, but residualization shows that the learned representation remains strongly geometry-correlated. The results should not be interpreted as deployment-ready biometrics or proof of pure neural permanence."
 }
-
